@@ -5,7 +5,7 @@
  * @s: string
  */
 
-void rev_string(char *s);
+void rev_string(char *s)
 {
 	int n = 0;
 
