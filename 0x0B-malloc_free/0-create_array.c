@@ -23,7 +23,7 @@ char *create_array(unsigned int size, char c)
 
 	for (i = 0; i < size; i++)
 		address[i] = c;
-	address[size] = c;
+	address[size] = '\0';
 
 
 	return (address);
