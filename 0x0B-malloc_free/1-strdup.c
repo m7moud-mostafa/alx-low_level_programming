@@ -1,14 +1,29 @@
 #include "main.h"
 /**
- * create_array - Create a array object
+ * _strdup - Create a array object
  *
- * @size: size
- * @c:char
- * Return: Null
+ * @str: string
+ * Return: something
  */
 
 
-char *_strdup(char *str);
+char *_strdup(char *str)
 {
+	int size;
+	char *pointer;
+	int i;
 
+	if (str == NULL)
+		return (NULL);
+
+	size = sizeof(str);
+	pointer = malloc(size);
+
+	if (pointer == NULL)
+		return (NULL);
+
+	for (i = 0; i <= size; i++)
+		pointer[i] = str[i];
+
+	return (pointer);
 }
