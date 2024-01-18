@@ -10,30 +10,5 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int length = 0;
-	char *start_accept = accept;
 
-	while (*s)
-	{
-		while (*accept)
-		{
-			if (*s == *accept)
-			{
-				length++;
-				break;
-			}
-			accept++;
-		}
-
-
-		if (!*accept)
-		{
-			break;
-		}
-
-		accept = start_accept;
-		s++;
-	}
-
-	return (length);
 }
