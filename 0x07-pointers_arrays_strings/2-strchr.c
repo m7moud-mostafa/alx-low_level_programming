@@ -22,7 +22,7 @@ char *_strchr(char *s, char c)
 			break;
 	}
 
-	if (i == len)
+	if (i == len - 1)
 		return (NULL);
 
 	else
