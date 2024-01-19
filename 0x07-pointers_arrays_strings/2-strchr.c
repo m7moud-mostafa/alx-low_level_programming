@@ -10,5 +10,21 @@
  */
 char *_strchr(char *s, char c)
 {
+	int len = 0;
+	int i = 0;
 
+	while (s[len] != '\0')
+		len++;
+
+	for (; i <= len; i++)
+	{
+		if (s[i] == c)
+			break;
+	}
+
+	if (i == len)
+		return (NULL);
+
+	else
+		return (s + i);
 }
