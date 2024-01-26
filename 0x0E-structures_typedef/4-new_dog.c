@@ -46,25 +46,28 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (dog == NULL)
 		return (NULL);
 
-	dog->name = _strdub(name);
-	if (dog->name == NULL)
-	{
-		free (dog);
-		return (NULL);
-	}
-	dog->owner = _strdub(owner);
-	if (dog->owner == NULL)
-	{
-		free (dog);
-		return (NULL);
-	}
-
 	dog->age = age;
 	if (dog->age <= 0)
 	{
-		free (dog);
+		free(dog);
 		return (NULL);
 	}
+
+	dog->name = _strdub(name);
+	if (dog->name == NULL)
+	{
+		free(dog);
+		return (NULL);
+	}
+
+	dog->owner = _strdub(owner);
+	if (dog->owner == NULL)
+	{
+		free(dog->name);
+		free(dog);
+		return (NULL);
+	}
+
 
 	return (dog);
 }
