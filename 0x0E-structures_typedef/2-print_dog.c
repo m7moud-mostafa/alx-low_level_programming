@@ -5,26 +5,19 @@
  */
 void print_dog(struct dog *d)
 {
-	char *name;
-	char *owner;
-	char *age_str = "(nil)";
-	float age;
-
-	age = d->age;
-
 	if (d != NULL)
 	{
-		if (d->name == NULL)
-			name = age_str;
+		printf("Name: %s\n", (d->name != NULL) ? d->name : "(nil)");
+		if (d->age >= 0)
+		{
+			printf("Age: %.6f\n", d->age);
+		}
 		else
-			name = d->name;
-		if (d->owner == NULL)
-			owner = age_str;
-		else
-			owner = d->owner;
-		if (age < 0)
-			printf("Name: %s\nAge: %s\nOwner: %s\n", name, age_str, owner);
-		else
-			printf("Name: %s\nAge: %.6f\nOwner: %s\n", name, age, owner);
+		{
+			printf("Age: (nil)\n");
+		}
+
+		printf("Owner: %s\n", (d->owner != NULL) ? d->owner : "(nil)");
 	}
+
 }
