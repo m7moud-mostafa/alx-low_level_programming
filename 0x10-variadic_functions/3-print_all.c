@@ -8,46 +8,34 @@
  */
 void print_all(const char * const format, ...)
 {
+	unsigned int i = 0;
+	char *str, *sep = "";
 	va_list args;
-	int i = 0, j;
-	char *str, *separator = "";
-	char types[] = "cifs";
 
 	va_start(args, format);
+
 	while (format && format[i])
 	{
-		j = 0;
-		while (types[j])
+		switch (format[i])
 		{
-			if (format[i] == types[j])
-			{
-				printf("%s", separator); // Replace with _putchar loop if needed
-				switch (format[i])
-				{
-					case 'c':
-						_putchar(va_arg(args, int));
-						break;
-					case 'i':
-						/* Implement integer to string conversion and print */
-						break;
-					case 'f':
-						/* Implement float to string conversion and print */
-						break;
-					case 's':
-						str = va_arg(args, char *);
-						if (!str)
-							str = "(nil)";
-						while (*str)
-							_putchar(*str++);
-						break;
-				}
-				separator = ", ";
+			case 'c':
+				printf("%s%c", sep, va_arg(args, int));
 				break;
-			}
-			j++;
+			case 'i':
+				printf("%s%d", sep, va_arg(args, int));
+				break;
+			case 'f':
+				printf("%s%f", sep, va_arg(args, double));
+				break;
+			case 's':
+				str = va_arg(args, char *);
+				printf("%s%s", sep, str ? str : "(nil)");
+				break;
 		}
+		sep = ", ";
 		i++;
 	}
-	_putchar('\n');
+
+	printf("\n");
 	va_end(args);
 }
