@@ -10,6 +10,8 @@ void print_dog(struct dog *d)
 	char *age_str = "(nil)";
 	float age;
 
+	age = d->age;
+
 	if (d != NULL)
 	{
 		if (d->name == NULL)
@@ -20,6 +22,6 @@ void print_dog(struct dog *d)
 			owner = age_str;
 		else
 			owner = d->owner;
-		printf("Name: %s\nAge: %f\nOwner: %s\n", name, d->age, owner);
+		printf("Name: %s\nAge: %.6f\nOwner: %s\n", name, age, owner);
 	}
 }
