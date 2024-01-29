@@ -18,31 +18,35 @@ void print_all(const char * const format, ...)
 	while (format[len] != '\0')
 	{
 		sym = format[len];
-		if (sym == 'c')
-			printf("%c", va_arg(var, int));
-		else if (sym == 'i')
-			printf("%i", va_arg(var, int));
-		else if (sym == 'f')
-			printf("%f", va_arg(var, double));
-		else if (sym == 's')
+		switch (sym)
 		{
-			string = va_arg(var, char *);
-			if (string == NULL)
-				printf("(nil)");
-			else
+		case 'c':
+			printf("%c", va_arg(var, int));
+			break;
+		case 'i':
+			printf("%i", va_arg(var, int));
+			break;
+		case 'f':
+			printf("%f", va_arg(var, double));
+			break;
+		case 's':
+				string = va_arg(var, char *);
+				if (!string)
+				{
+					string = "(nil)";
+				}
 				printf("%s", string);
-		}
-		else
+				break;
+		default:
 		{
 			len++;
 			continue;
 		}
+		}
 
-
-		while (format[len + 1] != '\0')
+		if (format[len + 1] != '\0')
 		{
 			printf(", ");
-			break;
 		}
 		len++;
 	}
