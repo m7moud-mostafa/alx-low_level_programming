@@ -20,11 +20,11 @@ void print_all(const char * const format, ...)
 		sym = format[len];
 		if (sym == 'c')
 			printf("%c", va_arg(var, int));
-		if (sym == 'i')
+		else if (sym == 'i')
 			printf("%i", va_arg(var, int));
-		if (sym == 'f')
+		else if (sym == 'f')
 			printf("%f", va_arg(var, double));
-		if (sym == 's')
+		else if (sym == 's')
 		{
 			string = va_arg(var, char *);
 			if (string == NULL)
@@ -32,8 +32,19 @@ void print_all(const char * const format, ...)
 			else
 				printf("%s", string);
 		}
-		len++;
+		else
+		{
+			len++;
+			continue;
+		}
 
+
+		while (format[len + 1] != '\0')
+		{
+			printf(", ");
+			break;
+		}
+		len++;
 	}
 	printf("\n");
 	va_end(var);
