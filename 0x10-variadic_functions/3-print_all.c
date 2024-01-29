@@ -8,5 +8,33 @@
  */
 void print_all(const char * const format, ...)
 {
+	va_list var;
+	int len = 0;
+	char sym;
+	char *string;
 
+	va_start(var, format);
+
+	while (format[len] != '\0')
+	{
+		sym = format[len];
+		if (sym == 'c')
+			printf("%c", va_arg(var, int));
+		if (sym == 'i')
+			printf("%i", va_arg(var, int));
+		if (sym == 'f')
+			printf("%f", va_arg(var, double));
+		if (sym == 's')
+		{
+			string = va_arg(var, char *);
+			if (string == NULL)
+				printf("(nil)");
+			else
+				printf("%s", string);
+		}
+		len++;
+
+	}
+	printf("\n");
+	va_end(var);
 }
