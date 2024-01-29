@@ -14,7 +14,6 @@ void print_all(const char * const format, ...)
 	char *string;
 
 	va_start(var, format);
-
 	while (format[len] != '\0')
 	{
 		sym = format[len];
@@ -38,12 +37,9 @@ void print_all(const char * const format, ...)
 				printf("%s", string);
 				break;
 		default:
-		{
 			len++;
 			continue;
 		}
-		}
-
 		if (format[len + 1] != '\0')
 		{
 			printf(", ");
