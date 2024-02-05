@@ -28,12 +28,12 @@ int main(int argc, char **argv)
 
 	if (f == NULL)
 	{
-		printf("Error in get_op_func NULL condition \n");
+		printf("Error\n");
 		exit(98);
 	}
 
 
 	result = f(a, b);
-	printf("I'm in the main function this is the result = %i\n", result);
+	printf("%i\n", result);
 	return (0);
 }
