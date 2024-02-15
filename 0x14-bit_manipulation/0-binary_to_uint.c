@@ -1,25 +1,6 @@
 #include "main.h"
 
 /**
- * power - calculates base ^ exponent
- *
- * @base: the base
- * @exponent: the exponent
- * Return: int
- */
-int power(int base, int exponent)
-{
-	int result = 1;
-
-	while (exponent > 0)
-	{
-		result *= base;
-		--exponent;
-	}
-	return (result);
-}
-
-/**
  * binary_to_uint - converts a binary number to an unsigned int
  * @b: string containing the binary number
  *
@@ -46,7 +27,6 @@ unsigned int binary_to_uint(const char *b)
 			break;
 		default:
 			return (0);
-			break;
 		}
 		b++;
 	}
