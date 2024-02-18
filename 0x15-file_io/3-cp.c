@@ -11,17 +11,17 @@
 #define CLOSE_ERR 100
 
 /**
- * create_file - creates a file
+ * create_file_main - creates a file
+ *
  * @filename: the name of the file to create
  * @text_content: a NULL terminated string to write to the file
- *
+ * @letters: number of letters to printed
  * Return: 1 on success, -1 on failure
  */
-int create_file(const char *filename, char *text_content)
+int create_file_main(const char *filename, char *text_content, int letters)
 {
 	int file;
 	int n_write;
-	int len = 0;
 
 	if (!filename)
 		return (-1);
@@ -32,11 +32,8 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content)
 	{
-		while (text_content[len] != '\0')
-			len++;
-
-		n_write = write(file, text_content, len);
-		if (n_write == -1 || n_write != len)
+		n_write = write(file, text_content, letters);
+		if (n_write == -1 || n_write != letters)
 		{
 			close(file);
 			return (-1);
@@ -82,7 +79,7 @@ int main(int argc, char **argv)
 		exit(FILE_FROM_ERR);
 	}
 
-	creator = create_file(argv[2], buffer);
+	creator = create_file_main(argv[2], buffer, reader);
 	if (creator == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
