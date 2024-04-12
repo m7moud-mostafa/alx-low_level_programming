@@ -1,6 +1,7 @@
 
 #include <string.h>
 #include "hash_tables.h"
+#include <stdlib.h>
 
 /**
  * hash_table_set - Adds an element to the hash table.
