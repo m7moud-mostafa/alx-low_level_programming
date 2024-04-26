@@ -3,9 +3,9 @@
 
 /**
  * hash_djb2 - hash function
- * 
+ *
  * @str: string to be hashed
- * Return: unsigned long int 
+ * Return: unsigned long int
  */
 unsigned long int hash_djb2(const unsigned char *str)
 {
