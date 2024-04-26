@@ -19,12 +19,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	key_idx = key_index((const unsigned char *)key, ht->size);
-	/*Searches for the key and adds its value to the key*/
+
+	/*Searches for the key and adds its value to the it*/
 	idx_node = ht->array[key_idx];
 	while (idx_node)
 	{
 		if (!strcmp(idx_node->key, key))
 		{
+			free(idx_node->value);
 			idx_node->value = strdup(value);
 			return (1);
 		}
