@@ -1,5 +1,4 @@
 #include "hash_tables.h"
-#include <stdio.h>
 
 /**
  * hash_djb2 - hash function
