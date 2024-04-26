@@ -4,7 +4,7 @@
 
 /**
  * hash_table_set -  A function that adds an element to the hash table
- * 
+ *
  * @ht: pointer to a hash table
  * @key: the key
  * @value: the value
@@ -18,7 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht || !key || !value || !(*key))
 		return (0);
 
-	key_idx = key_index(key, ht->size);
+	key_idx = key_index((const unsigned char *)key, ht->size);
 	/*Searches for the key and adds its value to the key*/
 	idx_node = ht->array[key_idx];
 	while (idx_node)
