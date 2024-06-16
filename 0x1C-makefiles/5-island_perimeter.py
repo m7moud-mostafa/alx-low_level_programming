@@ -4,6 +4,9 @@
 
 def border_checker(grid, x, y, i=0, j=0):
     """Checks if there is water or not"""
+    if (x + i == -1) or (y + j == -1):
+        return 1
+
     try:
         if grid[y + j][x + i] == 0:
             return 1
@@ -30,14 +33,3 @@ def island_perimeter(grid):
                 perimeter += border_checker(grid, x, y, j=1)
                 perimeter += border_checker(grid, x, y, j=-1)
     return perimeter
-
-
-if __name__ == "__main__":
-    grid = [
-        [0, 0, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 0, 0, 0, 0],
-        [0, 1, 1, 1, 0, 0],
-        [0, 0, 0, 0, 0, 0]
-    ]
-    print(island_perimeter(grid))
